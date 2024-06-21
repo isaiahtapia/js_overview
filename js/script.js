@@ -1,31 +1,10 @@
 
-// function myFirstFunc() {
-//         console.log('function has been called');
-// }
+/*
+Create a function that takes 3 arguments
+-The first and second argument will be a number 
+-The third argument will be an mathmatical operator (+, -, *, /)
 
-// myFirstFunc();
+Example: If the operator is a '+' then you will add the two numbers together and console log the sum */
 
-// function add(num1, num2) { //argument
-//         console.log(num1 + num2);
-// }
+// Call your function 4 times with different numbers and operators to confirm that it is working correctly
 
-// add(5,10); //parameter
-
-// function printValues (num1, name, boolean, another) {
-//         console.log(another);
-// }
-
-// printValues (10, 'Allen', false);
- 
-function printNames(names) {
-     for (const name of names) {
-     console.log(name);
-        }
-}
-// printNames(['Bob','Jimmy','Julie']);
-
-const someName = "Isaiah Tapia";
-const h1 = document.querySelector('h1');
-
-h1.innerText = someName;
-       
