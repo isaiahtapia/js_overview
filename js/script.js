@@ -1,41 +1,34 @@
-//When the page loads, shows a button that the user clicks
-//When the button is clicked, show a prompt for first name, last name and age
-//Store the 3 values to an object
-//Print the data object values to the browser window
+// code 1 
+//window.addEventListener = (`mousemove`, function (eventObj) {
+//         console.log(eventObj.clientY);
+// });
 
-const gatherBtn = document.querySelector('#gather-btn');
+// code 2
+//function keyPressed(){
+//         console.log('key pressed down'); 
+// }
 
-function gatherInfo(){
-        let firstName, lastName, age;
-        let ask = true;
+// document.addEventListener('keydown', keyPressed);
 
-        while(ask) {
-        firstName = prompt('Please enter your first name');
+// function test() {
+//         console.log(num);
+// }
 
-        if (!firstName){
-                continue; 
+// test();
+
+//code 3
+const output = document.getElementById('key-output');
+
+
+function keyPressed(eventObj) {
+        console.log(eventObj.key);
+
+        output.innerText = eventObj.key + ' / ' + eventObj.keyCode; 
+      
+        if (eventObj.keyCode === 13) {
+          console.log(eventObj.key);
+          console.log('You have pressed the enter key');
         }
-
-        lastName = prompt('Please enter your last name');
-        
-        if (!lastName){
-                continue; 
-        }
-        
-        age = prompt('Please enter your age');
-                }
-        
-        // while(!firstName || !lastName || !age) {
-        // firstName = prompt('Please enter your first name');
-        // lastName = prompt('Please enter your last name');
-        // age = prompt('Please enter your age');
-        // }
-
-        // if (!firstName || !lastName || !age) {
-        //         alert ('You must fill out all values');
-        //         return gatherInfo();
-        // }
-}
-
-
-gatherBtn.addEventListener('click', gatherInfo);
+      }
+      
+      document.addEventListener('keydown', keyPressed); 
