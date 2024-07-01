@@ -1,29 +1,35 @@
-const weatherBtn = document.querySelector('#weather-btn');
-
-function outputWeather() {
-  const cityInput = document.querySelector('#city-input');
-  const apiKey = '9640dc04eb6e35c56fe5517a5dee5305';
-
-const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${apiKey}&units=imperial`;
+const charSelect = document.querySelector('#char-select');
+const searchBtn = document.querySelector('#search-btn');
 
 
-fetch(url)
-  
-  .then(function (responseObj) {
+function getCharacters(){
+const baseUrl = 'https://swapi.dev/api';
+const option = charSelect.value;
+const url = `${baseUrl}/${option}`;
 
-    return responseObj.json();
+console.log(url);
+
+fetch (url)
+  .then(function(resObj){
+  return resObj.json();    
   })
-  .then(function (data) {
-   
-    const html = `<h2>Temp: ${data.main.temp}</h2>`;
-    
+  .then(function(data){
     const outputDiv = document.querySelector('.output');
-    outputDiv.innerHTML = html;
+    
+outputDiv.innerHTML = ' ';
+
+    data.results.forEach(function (char) {
+      outputDiv.insertAdjacentHTML('beforeend', `
+        <div>
+          <h3>${char.name}</h3>
+          <p>Birth Year: ${char.birth_year}</p>
+        </div>`)
+    });
   })
-  .catch(function (error) {
-    console.log(error);
-  });
-
-
 }
-weatherBtn.addEventListener('click', outputWeather);
+
+function init(){
+  searchBtn.addEventListener('click', getCharacters);
+}
+
+init();
